@@ -2,7 +2,7 @@
 
 ## Setup
 
-1.  Install vagrant
+1. Install vagrant
 
    Download here: https://www.vagrantup.com/downloads.html
 
@@ -10,19 +10,19 @@
 
    Download here: https://www.virtualbox.org/wiki/Downloads
 
-3.  Download Vagrantfile **OR** git clone this repo
+3. Download Vagrantfile **OR** git clone this repo
 
-  * Download Vagrantfile
+    * (Choice 1) Download Vagrantfile
 
-   [Download Here](Vagrantfile)
+     [Download Here](Vagrantfile)
 
-  * git clone this repo  
+    * (Choice 2) git clone this repo  
 
-   ```
-   git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
-   ```
+     ```
+     git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
+     ```
 
-4.  Open up a terminal window in the same directory as the Vagrantfile
+4. Open up a terminal window in the same directory as the Vagrantfile
 
    For example if you downloaded the Vagrantfile to your Macbook in your Downloads folder->
 
@@ -33,21 +33,25 @@
    SEANs-MacBook-Pro:~ sean$ cd Downloads
    ```
 
-5.  Turn on the following VMs
+5. Turn on the following VMs
 
    ```bash
    vagrant up leaf01 leaf02 spine01 spine02 ansible
    ```
 
+6. Grab a beer/soda/coffee
+
+   takes about 5 minutes
+
 ## Demo 01
 
-1.  Connect to the ansible control node
+1. Connect to the ansible control node
 
    ```bash
    vagrant ssh ansible
    ```
 
-2.  Change directories into demo01
+2. Change directories into demo01
 
    ```bash
    cd ansible-networking-vagrant-demo/demo01
@@ -60,7 +64,7 @@
    ```
 
 # Vagrant Topology
-![Network Topology Diagram](diagram.png)
+![Network Topology Diagram](images/iagram.png)
 
  ---
 ![Red Hat Ansible Automation](images/rh-ansible-automation.png)

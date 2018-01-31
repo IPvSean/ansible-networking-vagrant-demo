@@ -8,6 +8,11 @@
 
 Vagrant.require_version ">= 2.0.1"
 
+$script = <<SCRIPT
+git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
+chown -R vagrant:vagrant ansible-networking-vagrant-demo
+SCRIPT
+
 Vagrant.configure("2") do |config|
 
   simid = 1
@@ -21,6 +26,14 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |v|
     v.gui=false
+  end
+
+  ##### DEFINE VM for ansible tower #####
+  config.vm.define "ansible" do |device|
+      device.vm.hostname = "ansible"
+      device.vm.box = "ansible/tower"
+      device.vm.network "private_network", virtualbox__intnet: "1_mgmt", ip: "172.16.10.2"
+      device.vm.provision "shell", inline: $script
   end
 
   ##### DEFINE VM for leaf01 #####
@@ -169,16 +182,6 @@ end
       vbox.customize ['modifyvm', :id, '--nicpromisc5', 'allow-all']
     end
 end
-
-  ##### DEFINE VM for ansible tower #####
-  config.vm.define "ansible" do |device|
-      device.vm.hostname = "ansible"
-      device.vm.box = "ansible/tower"
-      device.vm.network "private_network", virtualbox__intnet: "1_mgmt", ip: "172.16.10.2"
-      device.vm.provision "shell",
-        inline: "git clone https://github.com/IPvSean/ansible-networking-vagrant-demo"
-        inline: "chown -R vagrant:vagrant ansible-networking-vagrant-demo"
-  end
 
   ##### DEFINE VM for server01 #####
   config.vm.define "server01" do |device|
