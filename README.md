@@ -14,24 +14,24 @@
 
     * (Choice 1) Download Vagrantfile
 
-     [Download Here](Vagrantfile)
+       [Download Here](Vagrantfile)
 
     * (Choice 2) git clone this repo  
 
-     ```
-     git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
-     ```
+       ```
+       git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
+       ```
 
 4. Open up a terminal window in the same directory as the Vagrantfile
 
    For example if you downloaded the Vagrantfile to your Macbook in your Downloads folder->
 
-  1. Press command ⌘ + spacebar and type `terminal` in the *Spotlight Search* and press the return key
-  2. Switch to the Downloads directory
+    1. Press command ⌘ + spacebar and type `terminal` in the *Spotlight Search* and press the return key
+    2. Switch to the Downloads directory
 
-   ```bash
-   SEANs-MacBook-Pro:~ sean$ cd Downloads
-   ```
+       ```bash
+       SEANs-MacBook-Pro:~ sean$ cd Downloads
+       ```
 
 5. Turn on the following VMs
 
@@ -64,7 +64,7 @@
    ```
 
 # Vagrant Topology
-![Network Topology Diagram](images/iagram.png)
+![Network Topology Diagram](images/diagram.png)
 
  ---
 ![Red Hat Ansible Automation](images/rh-ansible-automation.png)
