@@ -13,3 +13,8 @@ spines
 [servers]
 server01 ansible_host=172.16.10.15
 server02 ansible_host=172.16.10.16
+
+[datacenter:children]
+leafs
+spines
+servers

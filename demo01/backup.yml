@@ -1,0 +1,11 @@
+---
+- hosts: network
+  connection: local
+  vars:
+    login_info:
+      username: vagrant
+      password: vagrant
+  tasks:
+    - vyos_config:
+        backup: yes
+        provider: "{{login_info}}"

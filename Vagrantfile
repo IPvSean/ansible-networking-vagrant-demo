@@ -177,6 +177,7 @@ end
       device.vm.network "private_network", virtualbox__intnet: "1_mgmt", ip: "172.16.10.2"
       device.vm.provision "shell",
         inline: "git clone https://github.com/IPvSean/ansible-networking-vagrant-demo"
+        inline: "chown -R vagrant:vagrant ansible-networking-vagrant-demo"
   end
 
   ##### DEFINE VM for server01 #####
