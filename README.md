@@ -1,6 +1,6 @@
 # Directions
 
-## Setup
+## Requirements
 
 1. Install vagrant
 
@@ -10,7 +10,9 @@
 
    Download here: <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">https://www.virtualbox.org/wiki/Downloads</a>
 
-3. Download Vagrantfile **OR** git clone this repo
+## Setup
+
+1. Download Vagrantfile **OR** git clone this repo
 
     * (Choice 1) Download Vagrantfile
 
@@ -18,7 +20,7 @@
 
     * (Choice 2) git clone this repo  
 
-       ```
+       ```bash
        git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
        ```
 
