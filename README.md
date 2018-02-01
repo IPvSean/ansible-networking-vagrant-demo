@@ -4,7 +4,7 @@
 
 1. Install vagrant
 
-   Download here: https://www.vagrantup.com/downloads.html
+   Download here: <a href="https://www.vagrantup.com/downloads.html" target="_blank">https://www.vagrantup.com/downloads.html</a>
 
 2. Install VirtualBox
 
@@ -14,7 +14,7 @@
 
     * (Choice 1) Download Vagrantfile
 
-       [Download Here](Vagrantfile)
+       <a href="https://raw.githubusercontent.com/IPvSean/ansible-networking-vagrant-demo/master/Vagrantfile" download>Click here to download</a>
 
     * (Choice 2) git clone this repo  
 
