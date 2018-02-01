@@ -8,13 +8,13 @@
 
 2. Install VirtualBox
 
-   Download here: https://www.virtualbox.org/wiki/Downloads
+   Download here: <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">https://www.virtualbox.org/wiki/Downloads</a>
 
 3. Download Vagrantfile **OR** git clone this repo
 
     * (Choice 1) Download Vagrantfile
 
-       <a href="https://raw.githubusercontent.com/IPvSean/ansible-networking-vagrant-demo/master/Vagrantfile" download>Click here to download</a>
+       <a href="https://raw.githubusercontent.com/IPvSean/ansible-networking-vagrant-demo/master/Vagrantfile" download="Vagrantfile">Click here to download</a>
 
     * (Choice 2) git clone this repo  
 
