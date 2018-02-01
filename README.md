@@ -66,6 +66,7 @@
 # Vagrant Topology
 ![Network Topology Diagram](images/diagram.png)
 
+
  ---
 ![Red Hat Ansible Automation](images/rh-ansible-automation.png)
 
