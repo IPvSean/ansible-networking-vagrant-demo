@@ -14,11 +14,11 @@
 
 1. Download Vagrantfile **OR** git clone this repo
 
-    * (Choice 1) Download Vagrantfile
+    * **Choice 1** Download Vagrantfile
 
        <a href="https://raw.githubusercontent.com/IPvSean/ansible-networking-vagrant-demo/master/Vagrantfile" download="Vagrantfile">Click here to download</a>
 
-    * (Choice 2) git clone this repo  
+    * **Choice 2** git clone this repo  
 
        ```bash
        git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
@@ -45,25 +45,9 @@
 
    takes about 5 minutes
 
-## Demo 01
+7. Begin Exercises
 
-1. Connect to the ansible control node
-
-   ```bash
-   vagrant ssh ansible
-   ```
-
-2. Change directories into demo01
-
-   ```bash
-   cd ansible-networking-vagrant-demo/demo01
-   ```
-
-3. Run the playbook backup.yml
-
-   ```bash
-   ansible-playbook backup.yml
-   ```
+   Once vagrant finishes provisioning, check out the [training course](training-course) and follow directions there.
 
 # Vagrant Topology
 ![Network Topology Diagram](images/diagram.png)

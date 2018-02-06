@@ -11,6 +11,9 @@ Vagrant.require_version ">= 2.0.1"
 $script = <<SCRIPT
 git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
 chown -R vagrant:vagrant ansible-networking-vagrant-demo
+cp /home/vagrant/ansible-networking-vagrant-demo/training-course/ansible.cfg /home/vagrant/.ansible.cfg
+yum install python-pip tree -y
+pip install git+https://github.com/ansible/ansible.git@devel
 SCRIPT
 
 Vagrant.configure("2") do |config|
@@ -32,6 +35,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "ansible" do |device|
       device.vm.hostname = "ansible"
       device.vm.box = "ansible/tower"
+      device.vm.network :forwarded_port, guest: 22, host: 6010
       device.vm.network "private_network", virtualbox__intnet: "1_mgmt", ip: "172.16.10.2"
       device.vm.provision "shell", inline: $script
   end

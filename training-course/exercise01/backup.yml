@@ -1,0 +1,6 @@
+---
+- hosts: network
+  connection: network_cli
+  tasks:
+    - vyos_config:
+        backup: yes
