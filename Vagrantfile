@@ -12,6 +12,7 @@ $script = <<SCRIPT
 git clone https://github.com/IPvSean/ansible-networking-vagrant-demo
 chown -R vagrant:vagrant ansible-networking-vagrant-demo
 cp /home/vagrant/ansible-networking-vagrant-demo/training-course/ansible.cfg /home/vagrant/.ansible.cfg
+cp /home/vagrant/ansible-networking-vagrant-demo/training-course/etchosts /etc/hosts
 yum install python-pip tree -y
 pip install git+https://github.com/ansible/ansible.git@devel
 SCRIPT

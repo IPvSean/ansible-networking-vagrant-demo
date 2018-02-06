@@ -14,7 +14,8 @@
 
 # Exercises
 
-- [Exercise 01](exercise01/README.md): performing configuration backups
-- [Exercise 02](exercise02/README.md): using the os_facts module
+- [Exercise 01](exercise01/README.md): Performing Configuration Backups
+- [Exercise 02](exercise02/README.md): Using the os_facts Module
+- [Exercise 03](exercise03/README.md): Configuring System Parameters
 
 [Return To Top Level](../README.md)

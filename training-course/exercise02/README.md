@@ -1,4 +1,4 @@
-# Exercise 02 - Grabbing Facts
+# Exercise 02 - Using the os_facts Module
 
 For this exercise we are going to grab specific information from the network.  For every [network platform](https://access.redhat.com/articles/3185021) there is a `os_facts` module.  In this case we are going to use the [vyos_facts](http://docs.ansible.com/ansible/latest/vyos_facts_module.html) module to collect information.  Lets first see what information we can gather through facts.  We will register the output from the `vyos_facts` module and use the `debug` module to display it to our terminal.
 

@@ -1,4 +1,4 @@
-# Exercise 01 - Backing up configurations
+# Exercise 01 - Performing Configuration Backups
 
 For this exercise we are going to start with a brown field problem.  One of the first things people want to automate is configuration backup.  Lets look at a simple 1-task playbook that can accomplish this.
 
