@@ -5,7 +5,7 @@ For this exercise we are going to configure IP address between the leaf and spin
 Here is the IP address diagram:
 ![diagram](ipaddress_diagram.png)
 
-Device One | IP Address for Device One | IP Address for Device Two | Device Two
+Device Left | IP Address for Device Left | IP Address for Device Right | Device Right
 ------------ | ------------- | ------------- | -------------
 spine01 | 192.168.11.1/30 | 192.168.11.2/30 | leaf01
 spine01 | 192.168.12.1/30 | 192.168.12.2/30 | leaf02
