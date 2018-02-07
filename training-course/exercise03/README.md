@@ -26,7 +26,7 @@ ansible-playbook system.yml -u vagrant -k
 Parameter | Explanation
 ------------ | -------------
 ansible-playbook | Ansible executable for running playbooks
-facts.yml | the name of the playbook
+system.yml | the name of the playbook
 -u vagrant | specifies user vagrant
 -k | prompts us for password
 
