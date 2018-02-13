@@ -105,6 +105,6 @@ O>* 192.168.22.0/30 [110/20] via 192.168.12.2, eth3, 00:54:40
 ```
 
 ## Complete
-You have completed exercise 04.
+You have completed exercise 05.
 
 [Return to training-course](../README.md)
