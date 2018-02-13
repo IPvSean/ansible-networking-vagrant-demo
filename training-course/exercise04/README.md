@@ -42,7 +42,7 @@ Look at the following playbook:
 To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
 
 ```bash
-ansible-playbook system.yml -u vagrant -k
+ansible-playbook ipaddr.yml -u vagrant -k
 ```
 Parameter | Explanation
 ------------ | -------------
@@ -59,7 +59,41 @@ ssh vagrant@leaf01
 ```
 
 To see what Ansible configured:
+```
+vagrant@leaf01:~$ show int
+Codes: S - State, L - Link, u - Up, D - Down, A - Admin Down
+Interface        IP Address                        S/L  Description
+---------        ----------                        ---  -----------
+eth0             10.0.2.15/24                      u/u
+eth1             172.16.10.11/24                   u/u
+eth2             -                                 u/u
+eth3             -                                 u/u
+eth4             -                                 u/u
+eth5             -                                 u/u
+eth6             192.168.11.2/30                   u/u
+eth7             192.168.21.2/30                   u/u
+lo               127.0.0.1/8                       u/u
+                 ::1/128
+```
+We can make sure both sides are configured by issuing an ICMP ping
+```
+vagrant@leaf01:~$ ping 192.168.11.1
+PING 192.168.11.1 (192.168.11.1) 56(84) bytes of data.
+64 bytes from 192.168.11.1: icmp_req=1 ttl=64 time=0.288 ms
+64 bytes from 192.168.11.1: icmp_req=2 ttl=64 time=0.305 ms
+^C
+--- 192.168.11.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 0.288/0.296/0.305/0.019 ms
+```
 
+We can also automate checking all of the connections in a playbook:
+
+```bash
+ansible-playbook system.yml -u vagrant -k
+```
+
+To look at the playbook [click here](check.yml)
 
 
 ## Complete

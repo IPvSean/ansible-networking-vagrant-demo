@@ -10,6 +10,10 @@
 
    Download here: <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">https://www.virtualbox.org/wiki/Downloads</a>
 
+3. Install Git (Optional)
+
+   Download here: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a>
+
 ## Setup
 
 1. Download Vagrantfile **OR** git clone this repo
