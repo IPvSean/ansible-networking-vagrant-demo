@@ -22,15 +22,19 @@ Look at the following playbook:
   vars:
     interface_data:
       spine01:
+          - { name: lo, ipv4: 10.0.0.1/32 }
           - { name: eth2, ipv4: 192.168.11.1/30 }
           - { name: eth3, ipv4: 192.168.12.1/30 }
       spine02:
+          - { name: lo, ipv4: 10.0.0.2/32 }
           - { name: eth2, ipv4: 192.168.21.1/30 }
           - { name: eth3, ipv4: 192.168.22.1/30 }
       leaf01:
+          - { name: lo, ipv4: 10.0.0.11/32 }
           - { name: eth6, ipv4: 192.168.11.2/30 }
           - { name: eth7, ipv4: 192.168.21.2/30 }
       leaf02:
+          - { name: lo, ipv4: 10.0.0.12/32 }
           - { name: eth6, ipv4: 192.168.12.2/30 }
           - { name: eth7, ipv4: 192.168.22.2/30 }
   tasks:
