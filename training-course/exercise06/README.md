@@ -67,7 +67,7 @@ This dictionary can also be written in an abbreviated form:
 - { name: BLOCK_LOOPBACK, ipv4_network_dest: 10.0.0.1/32, sequence: 10, action: reject, protocol: all, interfaces: ["eth2", "eth3"] }
 ```
 
-LOOP at the following playbook:
+Look at the following playbook:
 
 ```yml
 ---
@@ -88,6 +88,14 @@ LOOP at the following playbook:
         src: ./acl_config/{{inventory_hostname}}-acl.cfg
         save: yes
 ```
+
+Look at the [template by clicking here](acl.j2).  The template could be provided in two ways:
+
+- show configuration - which shows the rendered configuration
+- show configuration commands - which shows the commands that build the rendered configuration
+
+we will built a template based on the rendered configuration, but we could easily do either method depending on someone's preference.
+
 
 To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
 
