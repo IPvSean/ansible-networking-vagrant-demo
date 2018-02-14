@@ -19,6 +19,6 @@
 - [Exercise 03](exercise03/README.md): Configuring System Parameters
 - [Exercise 04](exercise04/README.md): Configuring IP Addresses
 - [Exercise 05](exercise05/README.md): Configuring OSPF Routing
-
+- [Exercise 06](exercise06/README.md): Configuring ACLs 
 
 [Return To Top Level](../README.md)

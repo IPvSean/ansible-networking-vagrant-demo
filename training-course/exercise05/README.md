@@ -104,6 +104,40 @@ O>* 192.168.21.0/30 [110/20] via 192.168.11.2, eth2, 00:54:48
 O>* 192.168.22.0/30 [110/20] via 192.168.12.2, eth3, 00:54:40
 ```
 
+We can also automate checking the results.  Using the [vyos_command](http://docs.ansible.com/ansible/latest/vyos_command_module.html) to ping the loopback addresses of each switch, and then using the [assert module](http://docs.ansible.com/ansible/latest/assert_module.html) we can make sure we have full reachability.  Check out the following playbook:
+
+```yaml
+- hosts: network
+  connection: network_cli
+  tasks:
+    - name: Test reachability from all devices to all devices
+      vyos_command:
+        commands:
+          - "ping 10.0.0.1 count 2"
+          - "ping 10.0.0.2 count 2"
+          - "ping 10.0.0.11 count 2"
+          - "ping 10.0.0.12 count 2"
+      register: ping_result
+
+    - name: assert test results
+      assert:
+        that:
+          - "'10.0.0.1' in ping_result.stdout[0]"
+          - "'0% packet loss' in ping_result.stdout[0]"
+          - "'10.0.0.2' in ping_result.stdout[1]"
+          - "'0% packet loss' in ping_result.stdout[1]"
+          - "'10.0.0.11' in ping_result.stdout[2]"
+          - "'0% packet loss' in ping_result.stdout[2]"
+          - "'10.0.0.12' in ping_result.stdout[3]"
+          - "'0% packet loss' in ping_result.stdout[3]"
+```
+
+To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
+
+```bash
+ansible-playbook check.yml -u vagrant -k
+```
+
 ## Complete
 You have completed exercise 05.
 
