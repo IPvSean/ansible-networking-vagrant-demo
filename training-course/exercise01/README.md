@@ -1,6 +1,16 @@
 # Exercise 01 - Performing Configuration Backups
 
-For this exercise we are going to start with a brown field problem.  One of the first things people want to automate is configuration backup.  Lets look at a simple 1-task playbook that can accomplish this.
+For this exercise we are going to start with a brown field problem.  One of the first things people want to automate is configuration backup.  For this exercise we will be using the [vyos_config module](http://docs.ansible.com/ansible/latest/vyos_config_module.html).  We will use Ansible to grab configurations from the network, and store them locally on the ansible control node (where Ansible is being executed from).
+
+## Table of Contents
+
+- [The Playbook](#the-playbook)
+- [Looking at the results part 2](#looking-at-the-results-part-2)
+- [Complete](#complete)
+
+## The Playbook
+
+Lets look at a simple 1-task playbook that can accomplish this.
 
 ```yml
 ---
@@ -22,7 +32,7 @@ backup.yml | the name of the playbook
 -u vagrant | specifies user vagrant
 -k | prompts us for password
 
-# Looking at the results
+## Looking at the results
 
 This will create a folder called `backup` that contains time stamped entires for each device that the playbook ran on:
 
