@@ -1,6 +1,19 @@
 # Exercise 03 - Configuring System Services
 
-For this exercise we are going to configure the hostname, domain name and name servers (DNS servers) for the network devices.  For all three of these we can use the [vyos_system module](http://docs.ansible.com/ansible/latest/vyos_system_module.html).  Look at the following playbook:
+For this exercise we are going to configure the hostname, domain name and name servers (DNS servers) for the network devices.  For all three of these we can use the [vyos_system module](http://docs.ansible.com/ansible/latest/vyos_system_module.html).  
+
+## Table of Contents
+
+- [The Playbook](#the-playbook)
+- [Looking at the results](#looking-at-the-results)
+   - [Hostname](#hostname)
+   - [Domain Name](#domain-Name)
+   - [DNS Servers](#dns-Servers)
+- [Complete](#complete)
+
+## The Playbook
+
+Look at the following playbook:
 
 ```yml
 ---
@@ -30,7 +43,7 @@ system.yml | the name of the playbook
 -u vagrant | specifies user vagrant
 -k | prompts us for password
 
-# Looking at the results
+## Looking at the results
 
 Login to a device:
 ```
@@ -39,7 +52,7 @@ ssh vagrant@leaf01
 
 To see what Ansible configured:
 
-## Hostname
+### Hostname
 
 ```bash
 vagrant@leaf01:~$ show host name
@@ -47,14 +60,14 @@ leaf01
 ```
 
 
-## Domain Name
+### Domain Name
 
 ```bash
 vagrant@vyos:~$ show host domain
 test.example.com
 ```
 
-## DNS Servers
+### DNS Servers
 
 ```
 vagrant@vyos:~$ show configuration | grep name-server

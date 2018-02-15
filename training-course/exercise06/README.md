@@ -4,15 +4,17 @@ For this exercise we are going to configure [Access Lists](https://en.wikipedia.
 
 ## Table of Contents
 
-- [Intro to ACLs on vyos](#Intro_to_ACLs_on_vyos)
-- [os_config using lines parameter](#os_config_using_lines_parameter)
-- [Using Templates](#Using_Templates)
-- [The Playbook](#The_Playbook)
+- [Intro to ACLs on vyos](#intro-to-acls-on-vyos)
+- [os_config using lines parameter](#os_config-using-lines-parameter)
+- [Using Templates](#using-templates)
+- [The Playbook](#the-playbook)
+- [Looking at the results](#looking-at-the-results)
 - [Complete](#complete)
 
 
 
 ## Intro to ACLs on vyos
+
 We are showing one way to configure an ACL on the vyos platform.  To read more [please read their documentation](https://wiki.vyos.net/wiki/User_Guide#Firewall).  This intro is being provided because ACLs on vyos can be slightly different from both iptables (netfilter) and Cisco IOS.
 
 To create an ACL on vyos, we use the special keyword **firewall**.  First we will create a group, which is where we define our network.

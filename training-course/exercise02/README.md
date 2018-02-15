@@ -1,6 +1,19 @@
 # Exercise 02 - Using the os_facts Module
 
-For this exercise we are going to grab specific information from the network.  For every [network platform](https://access.redhat.com/articles/3185021) there is a `os_facts` module.  In this case we are going to use the [vyos_facts](http://docs.ansible.com/ansible/latest/vyos_facts_module.html) module to collect information.  Lets first see what information we can gather through facts.  We will register the output from the `vyos_facts` module and use the `debug` module to display it to our terminal.
+For this exercise we are going to grab specific information from the network.  For every [network platform](https://access.redhat.com/articles/3185021) there is a `os_facts` module.  In this case we are going to use the [vyos_facts](http://docs.ansible.com/ansible/latest/vyos_facts_module.html) module to collect information.  
+
+## Table of Contents
+
+- [The Playbook](#the-playbook)
+- [Looking at the results](#looking-at-the-results)
+- [Using Specific facts](#using-specific-facts)
+- [Looking at the results part 2](#looking-at-the-results-part-2)
+- [Complete](#complete)
+
+
+## The Playbook
+
+Lets first see what information we can gather through facts.  We will register the output from the `vyos_facts` module and use the `debug` module to display it to our terminal.
 
 ```yml
 ---
@@ -27,7 +40,7 @@ facts.yml | the name of the playbook
 -u vagrant | specifies user vagrant
 -k | prompts us for password
 
-# Looking at the results
+## Looking at the results
 
 In your terminal window there will be a bunch of JSON output per network device.  Here is an example of output for the leaf02 host:
 
@@ -40,7 +53,7 @@ In your terminal window there will be a bunch of JSON output per network device.
 <--output below removed for brevity-->
 ```
 
-# Using Specific facts
+## Using Specific facts
 
 This time instead of debugging the entire output, lets just use a few specific facts per network device.  Here is the next playbook [specific_facts.yml](specific_facts.yml):
 
@@ -58,7 +71,7 @@ This time instead of debugging the entire output, lets just use a few specific f
         msg: The device {{ansible_net_hostname}} is model {{ansible_net_model}} running {{ansible_net_version}}
 ```
 
-# Looking at the results
+## Looking at the results part 2
 The debug statement is now much more succinct with just the details we specified:
 
 ```bash

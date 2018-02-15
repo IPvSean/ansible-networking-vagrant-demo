@@ -5,9 +5,9 @@ For this exercise we are going to configure [OSPF routing](https://en.wikipedia.
 ## Table of Contents
 
 - [Diagram](#Diagram)
-- [Jinja Templates](#Jinja_Templates)
-- [The Playbook](#The_Playbook)
-- [Looking at the results](Looking_at_the_results)
+- [Jinja Templates](#jinja-templates)
+- [The Playbook](#the-playbook)
+- [Looking at the results](#looking-at-the-results)
 - [Complete](#complete)
 
 ## Diagram
