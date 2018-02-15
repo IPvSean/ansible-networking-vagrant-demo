@@ -2,9 +2,54 @@
 
 For this exercise we are going to configure [OSPF routing](https://en.wikipedia.org/wiki/Open_Shortest_Path_First) using the [vyos_config](http://docs.ansible.com/ansible/latest/vyos_config_module.html) module.  We are going to put every interface into area 0, using the **interface_data** from before.  
 
+## Table of Contents
+
+- [Diagram](#Diagram)
+- [Jinja Templates](#Jinja_Templates)
+- [The Playbook](#The_Playbook)
+- [Looking at the results](Looking_at_the_results)
+- [Complete](#complete)
+
+## Diagram
 Here is the IP address diagram from the previous exercise:
 ![diagram](../exercise04/ipaddress_diagram.png)
 
+## Jinja Templates
+
+On Linux hosts we can use the [template module](http://docs.ansible.com/ansible/latest/template_module.html) to render [jinja templates](http://jinja.pocoo.org/).  When using the connection **network_cli** the template module will just run locally for both the src and dest (as opposed to with Linux hosts where the src will be on the control node, and the dest will be on the inventory device the Playbook is being run against).  Lets look at a task of this:
+
+```
+- name: create routing config
+  template:
+    src: ./test.j2
+    dest: ./test_config/test.cfg
+```
+
+The vars for this example are:
+
+```yaml
+spine01:
+  loopback: 10.0.0.1/32
+```
+
+The test.j2 for this example is:
+```
+loopback lo {
+    address {{spine01.loopback}}
+}
+```
+
+Running the task above will render test.cfg:
+
+```yaml
+loopback lo {
+    address 10.0.0.1/32
+}
+```
+
+Jinja2 is very powerful and has lots of features.  The most commonly used ones to template configs are conditionals and loops [which you can read more about here](http://jinja.pocoo.org/docs/2.10/templates/).  With the networking **os_config** modules (i.e. vyos_config) the src can set from a jinja template.  This means you don't need two tasks to render, then push config.
+
+## The Playbook
 Look at the following playbook:
 
 ```yml
@@ -30,14 +75,9 @@ Look at the following playbook:
           - { name: eth6, ipv4: 192.168.12.2/30 }
           - { name: eth7, ipv4: 192.168.22.2/30 }
   tasks:
-    - name: create routing config
-      template:
-        src: ./ospf.j2
-        dest: ./routing_config/{{inventory_hostname}}-routing.cfg
-
     - name: push config to device
       vyos_config:
-        src: ./routing_config/{{inventory_hostname}}-routing.cfg
+        src: ./ospf.j2
         save: yes
 ```
 

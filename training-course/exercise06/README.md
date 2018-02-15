@@ -1,14 +1,16 @@
 # Exercise 05 - Configuring ACLs
 
+For this exercise we are going to configure [Access Lists](https://en.wikipedia.org/wiki/Access_control_list) using the [vyos_config](http://docs.ansible.com/ansible/latest/vyos_config_module.html) module.  For this particular exercise we are going to create a rule on spine01, that blocks everyone from reaching his loopback address 10.0.0.1/32.
+
 ## Table of Contents
 
 - [Intro to ACLs on vyos](#Intro_to_ACLs_on_vyos)
-- [Simple Playbook](#simple_playbook)
+- [os_config using lines parameter](#os_config_using_lines_parameter)
 - [Using Templates](#Using_Templates)
+- [The Playbook](#The_Playbook)
 - [Complete](#complete)
 
 
-For this exercise we are going to configure [Access Lists](https://en.wikipedia.org/wiki/Access_control_list) using the [vyos_config](http://docs.ansible.com/ansible/latest/vyos_config_module.html) module.  For this particular exercise we are going to create a rule on spine01, that blocks everyone from reaching his loopback address 10.0.0.1/32.
 
 ## Intro to ACLs on vyos
 We are showing one way to configure an ACL on the vyos platform.  To read more [please read their documentation](https://wiki.vyos.net/wiki/User_Guide#Firewall).  This intro is being provided because ACLs on vyos can be slightly different from both iptables (netfilter) and Cisco IOS.
@@ -32,7 +34,8 @@ set firewall name BLOCK_LOOPBACK rule 10 destination group network-group 'BLOCK_
 set firewall name BLOCK_LOOPBACK rule 10 protocol 'all'
 ```
 
-## Simple Playbook
+## os_config using lines parameter
+
 It is possible to use the vyos_config module to simply apply the set commands to the vyos box.
 
 ```yml
@@ -67,6 +70,33 @@ This dictionary can also be written in an abbreviated form:
 - { name: BLOCK_LOOPBACK, ipv4_network_dest: 10.0.0.1/32, sequence: 10, action: reject, protocol: all, interfaces: ["eth2", "eth3"] }
 ```
 
+Look at the [template by clicking here](acl.j2).  The template could be provided in two ways:
+
+- show configuration - which shows the rendered configuration
+- show configuration commands - which shows the commands that build the rendered configuration
+
+we will built a template based on the rendered configuration, but we could easily do either method depending on someone's preference.
+
+Here is a snipped from the full [acl.j2](acl.j2):
+
+```jinja2
+{% for dict in acl_data[inventory_hostname] -%}
+network-group {{ dict["name"] }}
+    network {{ dict["ipv4_network_dest"] }}
+{% endfor -%}
+```
+
+For our demonstration we only have 1 dictionary, so the loop is not necessary (but makes this more future-proof and scalable).  Running the template module (or os_config module) on the above jinja2 template will render:
+
+```
+network-group BLOCK_LOOKBACK {
+    network 10.0.0.1/32
+}
+```
+
+
+## The Playbook
+
 Look at the following playbook:
 
 ```yml
@@ -78,24 +108,11 @@ Look at the following playbook:
       spine01:
           - { name: BLOCK_LOOPBACK, ipv4_network_dest: 10.0.0.1/32, sequence: 10, action: reject, protocol: all, interfaces: ["eth2", "eth3"] }
   tasks:
-    - name: create acl config
-      template:
-        src: ./acl.j2
-        dest: ./acl_config/{{inventory_hostname}}-acl.cfg
-
     - name: push config to device
       vyos_config:
-        src: ./acl_config/{{inventory_hostname}}-acl.cfg
+        src: ./acl.j2
         save: yes
 ```
-
-Look at the [template by clicking here](acl.j2).  The template could be provided in two ways:
-
-- show configuration - which shows the rendered configuration
-- show configuration commands - which shows the commands that build the rendered configuration
-
-we will built a template based on the rendered configuration, but we could easily do either method depending on someone's preference.
-
 
 To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
 

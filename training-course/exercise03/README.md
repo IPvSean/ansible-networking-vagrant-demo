@@ -1,4 +1,4 @@
-# Exercise 03 - Configuring System Parameters
+# Exercise 03 - Configuring System Services
 
 For this exercise we are going to configure the hostname, domain name and name servers (DNS servers) for the network devices.  For all three of these we can use the [vyos_system module](http://docs.ansible.com/ansible/latest/vyos_system_module.html).  Look at the following playbook:
 

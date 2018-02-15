@@ -20,12 +20,7 @@
           - { name: eth6, ipv4: 192.168.12.2/30 }
           - { name: eth7, ipv4: 192.168.22.2/30 }
   tasks:
-    - name: create routing config
-      template:
-        src: ./ospf.j2
-        dest: ./routing_config/{{inventory_hostname}}-routing.cfg
-
     - name: push config to device
       vyos_config:
-        src: ./routing_config/{{inventory_hostname}}-routing.cfg
+        src: ./ospf.j2
         save: yes
