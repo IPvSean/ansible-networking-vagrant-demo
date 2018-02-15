@@ -5,7 +5,7 @@ For this exercise we are going to start with a brown field problem.  One of the 
 ## Table of Contents
 
 - [The Playbook](#the-playbook)
-- [Looking at the results part 2](#looking-at-the-results-part-2)
+- [Looking at the results](#looking-at-the-results)
 - [Complete](#complete)
 
 ## The Playbook
