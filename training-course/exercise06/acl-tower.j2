@@ -1,40 +1,35 @@
 firewall {
     group {
-        {% for dict in acl_data[inventory_hostname] -%}
-        network-group {{ dict["name"] }}
-            {% if tower_top_level_ipv4_dst is defined -%}
-            network {{ dict["tower_top_level_ipv4_dst"] }}
-            {% else -%}
-            network {{ dict["ipv4_network_dest"] }}
-            {% endif -%}
-        {% endfor -%}
+        network-group TOWERRULE
+            network {{ tower_top_level_ipv4_dst }}
         }
     }
-    {% for dict in acl_data[inventory_hostname] -%}
-    name {{ dict["name"] }}
-        rule {{ dict["sequence"] }} {
-            action {{ dict["action"] }}
+    name TOWERRULE
+        rule 10 {
+            action reject
             destination {
                 group {
-                    network-group {{ dict["name"] }}
+                    network-group TOWERRULE
                 }
             }
-            protocol {{ dict["protocol"] }}
+            protocol all
         }
     }
-    {% endfor -%}
 }
 
 interfaces {
-    {% for dict in acl_data[inventory_hostname] -%}
-    {% for interface in dict["interfaces"] -%}
-    ethernet {{ interface }} {
+    ethernet eth2 {
         firewall {
             local {
-                name {{ dict["name"] }}
+                name TOWERRULE
             }
         }
     }
-    {% endfor -%}
-    {% endfor -%}
+    ethernet eth3 {
+        firewall {
+            local {
+                name TOWERRULE
+            }
+        }
+    }
 }
