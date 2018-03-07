@@ -9,5 +9,5 @@
   tasks:
     - name: push config to device
       vyos_config:
-        src: ./acl.j2
+        src: ./acl-tower.j2
         save: yes
