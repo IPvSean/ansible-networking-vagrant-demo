@@ -21,7 +21,7 @@ protocols {
 
 interfaces {
     {% for dict in interface_data[inventory_hostname] -%}
-    ethernet {{ dict["name"] {
+    ethernet {{ dict["name"] }} {
         ip {
             ospf {
                 network point-to-point
