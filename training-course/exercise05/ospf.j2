@@ -21,6 +21,7 @@ protocols {
 
 interfaces {
     {% for dict in interface_data[inventory_hostname] -%}
+    {% if dict["name"] != "lo" -%}
     ethernet {{ dict["name"] }} {
         ip {
             ospf {
@@ -28,5 +29,6 @@ interfaces {
             }
         }
     }
+    {% endif -%}
     {% endfor -%}
 }
