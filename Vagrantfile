@@ -15,6 +15,7 @@ cp /home/vagrant/ansible-networking-vagrant-demo/training-course/ansible.cfg /ho
 cp /home/vagrant/ansible-networking-vagrant-demo/training-course/etchosts /etc/hosts
 yum install python-pip tree -y
 pip install git+https://github.com/ansible/ansible.git@devel
+pip install netaddr
 SCRIPT
 
 Vagrant.configure("2") do |config|

@@ -87,7 +87,7 @@ Look at the following playbook:
         aggregate: "{{interface_data[inventory_hostname]}}"
 ```
 
-To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
+To run the playbook use the `ansible-playbook` command.  The default password is **vagrant** for the vyos vagrant image.
 
 ```bash
 ansible-playbook ipaddr.yml -u vagrant -k
@@ -95,7 +95,7 @@ ansible-playbook ipaddr.yml -u vagrant -k
 Parameter | Explanation
 ------------ | -------------
 ansible-playbook | Ansible executable for running playbooks
-system.yml | the name of the playbook
+check.yml | the name of the playbook
 -u vagrant | specifies user vagrant
 -k | prompts us for password
 
@@ -138,7 +138,7 @@ rtt min/avg/max/mdev = 0.288/0.296/0.305/0.019 ms
 We can also automate checking all of the connections in a playbook:
 
 ```bash
-ansible-playbook system.yml -u vagrant -k
+ansible-playbook check.yml -u vagrant -k
 ```
 
 To look at the playbook [click here](check.yml)

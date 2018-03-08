@@ -1,5 +1,5 @@
 ---
-- hosts: network
+- hosts: spine01
   connection: network_cli
   vars:
     acl_data:

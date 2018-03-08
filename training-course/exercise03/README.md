@@ -31,7 +31,7 @@ Look at the following playbook:
 
 In the above lets elaborate on what `inventory_hostname` is.  This is a variable that is defined by our inventory.  For this training course the inventory is located under [training-course/hosts](../hosts).  Each host is stored as an `inventory_hostname`.  To get more info on variables visit the [docs page](http://docs.ansible.com/ansible/latest/playbooks_variables.html)
 
-To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
+To run the playbook use the `ansible-playbook` command.  The default password is **vagrant** for the vyos vagrant image.
 
 ```bash
 ansible-playbook system.yml -u vagrant -k
@@ -63,7 +63,7 @@ leaf01
 ### Domain Name
 
 ```bash
-vagrant@vyos:~$ show host domain
+vagrant@leaf01:~$ show host domain
 test.example.com
 ```
 

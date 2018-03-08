@@ -28,7 +28,8 @@ Lets first see what information we can gather through facts.  We will register t
     - name: look at config
       debug: var=vyos_debug
 ```
-To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
+
+To run the playbook use the `ansible-playbook` command.  The default password is **vagrant** for the vyos vagrant image.
 
 ```bash
 ansible-playbook facts.yml -u vagrant -k

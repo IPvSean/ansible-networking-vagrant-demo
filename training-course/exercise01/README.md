@@ -2,6 +2,16 @@
 
 For this exercise we are going to start with a brown field problem.  One of the first things people want to automate is configuration backup.  For this exercise we will be using the [vyos_config module](http://docs.ansible.com/ansible/latest/vyos_config_module.html).  We will use Ansible to grab configurations from the network, and store them locally on the ansible control node (where Ansible is being executed from).
 
+# DEFAULT USERNAME AND PASSWORD FOR VYOS
+
+If you are running these training exercises on vagrant (default)
+**username**: vagrant
+**password**: vagrant
+
+If you are using a non-vagrant vyos image:
+**username**: vyos
+**password**: vyos
+
 ## Table of Contents
 
 - [The Playbook](#the-playbook)
@@ -20,7 +30,8 @@ Lets look at a simple 1-task playbook that can accomplish this.
     - vyos_config:
         backup: yes
 ```
-To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
+
+To run the playbook use the `ansible-playbook` command.  The default password is **vagrant** for the vyos vagrant image.
 
 ```bash
 ansible-playbook backup.yml -u vagrant -k

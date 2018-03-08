@@ -1,6 +1,6 @@
 # Exercise 05 - Configuring OSPF Routing
 
-For this exercise we are going to configure [OSPF routing](https://en.wikipedia.org/wiki/Open_Shortest_Path_First) using the [vyos_config](http://docs.ansible.com/ansible/latest/vyos_config_module.html) module.  We are going to put every interface into area 0, using the **interface_data** from before.  
+For this exercise we are going to configure [OSPF routing](https://en.wikipedia.org/wiki/Open_Shortest_Path_First) using the [vyos_config](http://docs.ansible.com/ansible/latest/vyos_config_module.html) module.  We are going to put every interface into area 0, using the **interface_data** from before.
 
 ## Table of Contents
 
@@ -81,7 +81,7 @@ Look at the following playbook:
         save: yes
 ```
 
-To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
+To run the playbook use the `ansible-playbook` command.  The default password is **vagrant** for the vyos vagrant image.
 
 ```bash
 ansible-playbook ospf.yml -u vagrant -k

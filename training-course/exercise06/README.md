@@ -116,10 +116,10 @@ Look at the following playbook:
         save: yes
 ```
 
-To run the playbook use the `ansible-playbook` command.  The default password is vagrant for the vyos vagrant image.
+To run the playbook use the `ansible-playbook` command.  The default password is **vagrant** for the vyos vagrant image.
 
 ```bash
-ansible-playbook ospf.yml -u vagrant -k
+ansible-playbook acl.yml -u vagrant -k
 ```
 Parameter | Explanation
 ------------ | -------------
