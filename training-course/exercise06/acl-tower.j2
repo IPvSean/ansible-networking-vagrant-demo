@@ -1,7 +1,7 @@
 firewall {
     group {
         network-group TOWERRULE
-            network {{ tower_top_level_ipv4_dst }}
+            network {{ ipv4_dst }}
         }
     }
     name TOWERRULE
