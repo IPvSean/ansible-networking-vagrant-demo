@@ -18,18 +18,13 @@ firewall {
 }
 
 interfaces {
-    ethernet eth2 {
+    {% for interface in interfaces -%}
+    ethernet {{ interface }} {
         firewall {
             local {
                 name TOWERRULE
             }
         }
     }
-    ethernet eth3 {
-        firewall {
-            local {
-                name TOWERRULE
-            }
-        }
-    }
+    {% endfor -%}
 }
